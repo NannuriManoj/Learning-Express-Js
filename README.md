@@ -15,29 +15,29 @@ After starting the server, open your browser and visit:
 http://localhost:3000
 
 
-Learning Methodology
+## Learning Methodology
 
-Focused on concept clarity rather than advanced features  
-Uses in-memory data instead of databases  
-Small practice projects for each concept  
-REST concepts introduced progressively  
-Code is intentionally kept readable and simple  
+- Focused on concept clarity rather than advanced features  
+- Uses in-memory data instead of databases  
+- Small practice projects for each concept  
+- REST concepts introduced progressively  
+- Code is intentionally kept readable and simple  
 
-Current Limitations
+## Current Limitations
 
-No database integration yet  
-No authentication or authorization  
-No advanced error handling  
-Intended strictly for learning purposes  
+- No database integration yet  
+- No authentication or authorization  
+- No advanced error handling  
+- Intended strictly for learning purposes  
 
-Future Improvements
+## Future Improvements
 
-Full CRUD implementation (GET, POST, PATCH, DELETE)  
-REST APIs with JSON responses  
-Database integration (MongoDB / PostgreSQL)  
-MVC architecture  
-Authentication basics  
-API testing using Postman  
+- Full CRUD implementation (GET, POST, PATCH, DELETE)  
+- REST APIs with JSON responses  
+- Database integration (MongoDB / PostgreSQL)  
+- MVC architecture  
+- Authentication basics  
+- API testing using Postman  
 
 Author
 
