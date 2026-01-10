@@ -1,14 +1,15 @@
 // Import express framework
 const express = require('express');
 const app = express();
-
+const { v4: uuid } = require('uuid');
+const methodOverride = require('method-override');
 // Node.js path module (used to resolve folder paths safely)
 const path = require('path');
 
 /**
  * -------- MIDDLEWARE --------
  */
-
+app.use(methodOverride('_method'));
 // Parses form data sent via HTML forms (POST /comments)
 // Makes form data available on req.body
 app.use(express.urlencoded({ extended: true }));
@@ -33,10 +34,11 @@ app.set('view engine', 'ejs');
  * In real apps, this would be a database.
  * Here, we are using an in-memory array.
  */
-const comments = [
-    { username: 'Jay', comment: 'There you go guys...' },
-    { username: 'Moni', comment: 'Hey, Hii..Manoj' },
-    { username: 'Manoj', comment: 'Hello Community' }
+let comments = [
+    { id: uuid(),username: 'Jay', comment: 'There you go guys...' },
+    { id: uuid(),username: 'Moni', comment: 'Hey, Hii..Manoj' },
+    { id: uuid(),username: 'Moni', comment: 'Hey, Hii..Manoj' },
+    { id: uuid(),username: 'Manoj', comment: 'Hello Community' }
 ];
 
 /**
@@ -68,6 +70,32 @@ app.get('/comments/new', (req, res) => {
     res.render('comments/new.ejs');
 });
 
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === id)
+    res.render('comments/show', { comment });
+});
+
+app.get('/comments/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === id)
+    res.render('comments/edit', { comment });
+})
+
+app.patch('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const newComment = req.body.comment;
+    const foundComment = comments.find(c => c.id === id)
+    foundComment.comment = newComment;
+    res.redirect('/comments');
+})
+
+app.delete('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    comments = comments.filter(c => c.id !== id);
+    res.redirect('/comments');
+});
+
 /**
  * CREATE (POST)
  * POST /comments
@@ -77,7 +105,7 @@ app.post('/comments', (req, res) => {
     const { username, comment } = req.body;
 
     // Add new comment to "database" (in-memory array)
-    comments.push({ username, comment });
+    comments.push({ username, comment, id: uuid() });
 
     // res.redirect():
     // Sends a redirect response to the browser
