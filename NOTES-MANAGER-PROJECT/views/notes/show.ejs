@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show - Single Note</title>
+</head>
+<body>
+    <h1>Show Note By id</h1>
+    <h2>Note ID: <%= note.id %> - <%= note.createdAt %></h2>
+    <h3><%= note.title %> </h3>
+    <p><%= note.content %></p>
+
+    <a href="/notes/<%= note.id %>/edit"></a>
+    <form method="POST" action="/notes/<%= note.id %>?_method=DELETE">
+        <button>Delete</button>
+    </form>
+
+    <a href="/notes"> Back to Notes List</a>
+    <a href="/notes/<%= note.id %>/edit">edit the note</a>
+</body>
+</html>
