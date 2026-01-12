@@ -33,3 +33,9 @@ Node REPL - Read Evaluate Print loop
 - CommonJs, every file is module (by default)
 - Modules, Encapsulated code (only share minimum)
 
+## Built in modules 
+Some General Modules 
+- OS
+- FS
+- Path 
+- HTTP
