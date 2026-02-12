@@ -2,6 +2,24 @@
 - Environment to run JavaScript outside Browser
 - Build on Chrome's V8 engine
 
+## How Node.Js works ?
+- V8 Js Engine
+- Non-Blocking (doesn't depend on the I/O operations)
+- Single Threaded
+- Event Loop
+
+## What is Node.Js is used for ?
+- Build API's (Ex: RESTful and GraphQL)
+- Server rendered Apps
+- Real Time Applications
+- Microservices 
+- CLI Tools
+- Bots
+- Web Scraping
+- Web Servers
+
+- Not great for CPU intensive applications.
+
 ## Browser vs Server 
 
 ### Browser

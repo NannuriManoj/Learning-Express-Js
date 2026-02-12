@@ -1,0 +1,15 @@
+{
+  "name": "node-fundamentals",
+  "version": "1.0.0",
+  "description": "Learning about node.js",
+  "license": "MIT",
+  "author": "Manoj",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --env-file=.env server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
